@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 6
+    commands:
+      - npm install codecov.io coveralls
+
+  pre_build:
+    commands:
+      - echo "Pre-build steps..."
+
+  build:
+    commands:
+      # Assuming you run tests with "npm test"
+      - npm test
+
+post_build:
+  commands:
+    - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
+    - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
