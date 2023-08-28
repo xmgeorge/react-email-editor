@@ -15,6 +15,7 @@ phases:
     commands:
       - cd demo
       - npm install
+      - env
       - npm run build
 
   post_build:
