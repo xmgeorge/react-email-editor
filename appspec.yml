@@ -1,8 +1,9 @@
 version: 0.0
 os: linux
 files:
-  - source: /demo/dist
+  - source: /
     destination: /usr/share/nginx/html
+    overwrite: true
 hooks:
   BeforeInstall:
     - location: scripts/BeforeInstallHook.sh
