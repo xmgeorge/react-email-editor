@@ -6,8 +6,6 @@ phases:
       nodejs: 18
     commands:
       - echo Build started on `date`
-      - npm install codecov.io coveralls
-      - npm run build
 
   pre_build:
     commands:
@@ -15,13 +13,12 @@ phases:
 
   build:
     commands:
-      - npm test
+      - npm install codecov.io coveralls
+      - npm run build
 
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 cp --recursive --acl public-read ./dist s3://ourdemoplace/
-      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./dist/index.html s3://ourdemoplace/
 
 artifacts:
   files:
