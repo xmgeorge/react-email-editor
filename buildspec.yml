@@ -14,7 +14,8 @@ phases:
   build:
     commands:
       - cd demo
-      - npm install 
+      - npm install
+      - npx update-browserslist-db@latest -y
       - npm run build
 
   post_build:
