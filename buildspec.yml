@@ -13,10 +13,16 @@ phases:
 
   build:
     commands:
-      # Assuming you run tests with "npm test"
       - npm test
 
-post_build:
-  commands:
-    - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
-    - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  post_build:
+    commands:
+      - cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js
+      - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+
+artifacts:
+  files:
+    - './coverage/**/*'
+  name: my-build-artifacts
+  discard-paths: yes
+  path: path-prefix/
