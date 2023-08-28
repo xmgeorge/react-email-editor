@@ -48,5 +48,8 @@
   "repository": "https://github.com/unlayer/react-email-editor.git",
   "keywords": [
     "react-component"
-  ]
+  ],
+  "dependencies": {
+    "react-email-editor": "^1.7.8"
+  }
 }
