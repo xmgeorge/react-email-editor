@@ -13,9 +13,10 @@ phases:
     commands:
       - echo "Pre-build steps..."
       - sudo apt-get update
-      - sudo apt-get install -y libappindicator1 fonts-liberation
+      - sudo apt-get install -y libappindicator1 fonts-liberation libasound2 libatk-bridge2.0-0 libatspi2.0-0 libgbm1 libgtk-3-0 libu2f-udev libvulkan1 libxkbcommon0 xdg-utils
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - sudo dpkg -i google-chrome*.deb
+      - npm i parcel
       - npx update-browserslist-db@latest  # Update caniuse-lite
 
   build:
