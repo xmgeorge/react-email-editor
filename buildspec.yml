@@ -12,10 +12,6 @@ phases:
   pre_build:
     commands:
       - echo "Pre-build steps..."
-      # - sudo apt-get -qq update
-      # - sudo apt-get install -qq -y libappindicator1 fonts-liberation libasound2 libatk-bridge2.0-0 libatspi2.0-0 libgbm1 libgtk-3-0 libu2f-udev libvulkan1 libxkbcommon0 xdg-utils
-      # - wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      # - sudo dpkg -i google-chrome*.deb
       - npm i parcel
       - npx update-browserslist-db@latest  # Update caniuse-lite
 
@@ -29,9 +25,9 @@ phases:
     commands:
       - echo Build completed on `date`
       - pwd && ls -l
-      - aws s3 cp --recursive --acl public-read ./demo/dist s3://webreactdemo/
-      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./demo/dist/index.html s3://webreactdemo/
+      - aws s3 cp --recursive --acl public-read ./dist s3://webreactdemo/
+      - aws s3 cp --acl public-read --cache-control="max-age=0, no-cache, no-store, must-revalidate" ./dist/index.html s3://webreactdemo/
 
 artifacts:
   files:
-    - 'demo/dist/**/*'
+    - 'dist/**/*'
