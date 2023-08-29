@@ -7,7 +7,8 @@ phases:
     commands:
       - echo Build started on `date`
       - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-      - export NVM_DIR="$HOME/.nvm" && $NVM_DIR/nvm.sh && $NVM_DIR/bash_completion
+      - export NVM_DIR="$HOME/.nvm" && bash chmod a+x $NVM_DIR/nvm.sh && bash chmod a+x $NVM_DIR/bash_completion
+      - export NVM_DIR="$HOME/.nvm" && bash  $NVM_DIR/nvm.sh && bash $NVM_DIR/bash_completion
       - nvm install 18.17.1
 
   pre_build:
